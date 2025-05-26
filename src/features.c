@@ -28,37 +28,17 @@ void dimension(char* filename) {
     } 
 } 
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "estia-image.h"
-
 void tenth_pixel(char* filename) {
-    unsigned char *data = NULL;
+    unsigned char *data;
     int width, height, channel_count;
-
-    // Lire l'image
-    if (read_image_data(filename, &data, &width, &height, &channel_count) != 0) {
-        fprintf(stderr, "Erreur : impossible de lire l'image.\n");
-        return;
-    }
-
-    // Vérification que l'image est assez large
-    if (width < 10) {
-        fprintf(stderr, "Erreur : l'image doit avoir au moins 10 pixels de largeur.\n");
-        free(data);
-        return;
-    }
-
-    // Calcul de l'index du 10ème pixel (coordonnées x=9, y=0)
-    int pixel_index = 9 * channel_count;
-
-    // Récupérer les valeurs RGB
-    int R = data[pixel_index];
-    int G = data[pixel_index + 1];
-    int B = data[pixel_index + 2];
-
-    // Affichage
-    printf("tenth_pixel: %d, %d, %d\n", R, G, B);
-
+    
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    
+    unsigned char r = data[27];
+    unsigned char g = data[28];
+    unsigned char b = data[29];
+    
+    printf("tenth_pixel: %d, %d, %d\n", r, g, b);
+    
     free(data);
 }
