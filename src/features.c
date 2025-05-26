@@ -61,3 +61,38 @@ void first_pixel(char* filename) {
         printf("first pixel: %d, %d, %d\n", pixel.R, pixel.G, pixel.B);
     }
 }
+
+void max_pixel(char* filename) {
+    unsigned char *data;
+    int width, height, channel_count;
+    
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    
+    int max_sum = -1;
+    int max_x = 0, max_y = 0;
+    unsigned char max_r = 0, max_g = 0, max_b = 0;
+    
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int pixel_index = (y * width + x) * channel_count;
+
+            unsigned char r = data[pixel_index];
+            unsigned char g = data[pixel_index + 1];
+            unsigned char b = data[pixel_index + 2];
+
+            int sum = r + g + b;
+
+            if (sum > max_sum) {
+                max_sum = sum;
+                max_x = x;
+                max_y = y;
+                max_r = r;
+                max_g = g;
+                max_b = b;
+            }
+        }
+    }
+    
+    printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, max_r, max_g, max_b);
+    
+}
