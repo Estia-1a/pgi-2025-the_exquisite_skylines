@@ -30,12 +30,12 @@ int main(int argc, char **argv) {
   if ( strncmp( configuration.command, "helloworld", 10 ) == 0 ) {
     /* helloworld() function is defined in feature.h and implemented in feature.c */
     helloWorld();
-  } 
-  else if (strncmp( configuration.command, "dimension", 9) == 0 ) {
+  } else if (strncmp( configuration.command, "dimension", 9) == 0 ) {
     dimension(configuration.filenames[0]);
-  }
-  else if (strncmp( configuration.command, "tenth_pixel", 11) == 0) {
+  } else if (strncmp( configuration.command, "tenth_pixel", 11) == 0) {
     tenth_pixel(configuration.filenames[0]);
+  } else if (strncmp( configuration.command, "first_pixel", 11) == 0 ) {
+    first_pixel(configuration.filenames[0]);
   }
   /*
    * TO COMPLETE
