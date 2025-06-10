@@ -108,7 +108,7 @@ void print_pixel(char* filename, int x, int y) {
     } else {
         printf("(%d, %d)\n", x, y);
     }
-
+}
 
 void min_pixel(char* filename) {
     unsigned char *data;
