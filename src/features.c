@@ -96,3 +96,17 @@ void max_pixel(char* filename) {
     printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, max_r, max_g, max_b);
     
 }
+void print_pixel(char* filename, int x, int y) {
+    unsigned char *data;
+    int width, height, channel_count;
+    
+    read_image_data(filename, &data, &width, &height, &channel_count);
+
+    pixelRGB* pixel = get_pixel(data, width, height, channel_count, x, y);
+    if (pixel != NULL) {
+        printf("(%d, %d): %d, %d, %d\n", x, y, pixel->R, pixel->G, pixel->B);
+    } else {
+        printf("(%d, %d)\n", x, y);
+    }
+
+}
