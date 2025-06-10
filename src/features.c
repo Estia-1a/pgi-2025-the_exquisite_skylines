@@ -99,7 +99,6 @@ void max_pixel(char* filename) {
 void print_pixel(char* filename, int x, int y) {
     unsigned char *data;
     int width, height, channel_count;
-    
     read_image_data(filename, &data, &width, &height, &channel_count);
 
     pixelRGB* pixel = get_pixel(data, width, height, channel_count, x, y);
