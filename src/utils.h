@@ -3,7 +3,7 @@
 
 /**
  * @brief Here, you have to define pixelRGB struct and its functions:
- * - pixel* getPixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y );
+ pixel* getPixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y );
  * - void setPixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y, pixelRGB* pixel);
  *
 */
@@ -15,6 +15,21 @@ typedef struct _pixelRGB {
     unsigned char G ;
     unsigned char B ;
 } pixelRGB ;
+
+typedef struct _getPixel {
+
+    unsigned char data;
+    unsigned int x;
+    unsigned int y;
+    unsigned int n;
+    unsigned int width;
+    unsigned int height;
+
+   
+} getPixel ; 
+
+pixel* getPixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y );
+
 
 
 #endif
