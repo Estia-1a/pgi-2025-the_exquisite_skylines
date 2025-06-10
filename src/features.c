@@ -96,3 +96,37 @@ void max_pixel(char* filename) {
     printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, max_r, max_g, max_b);
     
 }
+
+void min_pixel(char* filename) {
+    unsigned char *data;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    
+    int min_sum = 999;
+    int min_x = 0, min_y = 0;
+    unsigned char min_r = 0, min_g = 0, min_b = 0;
+    
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int pixel_index = (y * width + x) * channel_count;
+            
+            unsigned char r = data[pixel_index];
+            unsigned char g = data[pixel_index + 1];
+            unsigned char b = data[pixel_index + 2];
+            
+            int sum = r + g + b;
+            
+            if (sum < min_sum) {
+                min_sum = sum;
+                min_x = x;
+                min_y = y;
+                min_r = r;
+                min_g = g;
+                min_b = b;
+            }
+        }
+    }
+    
+    printf("min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, min_r, min_g, min_b);
+}
