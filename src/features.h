@@ -21,4 +21,6 @@ void min_component(char* filename, char* arguments);
 
 void color_red (const char* filename);
 
+void color_green (const char* filename);
+
 #endif

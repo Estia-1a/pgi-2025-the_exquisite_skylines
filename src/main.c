@@ -46,6 +46,8 @@ int main(int argc, char **argv) {
     min_component (configuration.filenames[0], configuration.arguments[0]);
   } else if (strncmp( configuration.command, "color_red", 10) == 0) {
     color_red(configuration.filenames[0]);
+  } else if (strncmp( configuration.command, "color_green", 12) == 0) {
+    color_green(configuration.filenames[0]);
   }
   return 0;
 }
