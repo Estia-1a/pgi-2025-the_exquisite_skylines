@@ -48,6 +48,8 @@ int main(int argc, char **argv) {
     color_red(configuration.filenames[0]);
   } else if (strncmp( configuration.command, "color_green", 12) == 0) {
     color_green(configuration.filenames[0]);
+  } else if (strncmp( configuration.command, "color_blue", 11) == 0) {
+    color_blue(configuration.filenames[0]);
   }
   return 0;
 }
