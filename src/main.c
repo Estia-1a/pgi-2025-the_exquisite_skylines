@@ -56,6 +56,8 @@ int main(int argc, char **argv) {
     invert_colors(configuration.filenames[0]);
   }else if (strncmp(configuration.command,"color_grey_luminance", 20) == 0) {
     color_grey_luminance(configuration.filenames[0]);
+  }else if (strncmp(configuration.command, "color_desaturate", 16) == 0) {
+    color_desaturate(configuration.filenames[0]);
   }
    return 0;
 }
