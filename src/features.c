@@ -4,7 +4,7 @@
 #include "features.h"
 #include "utils.h"
 #include "estia-image.h" // Ensure getPixel and pixelRGB are declared
-
+#include <stdlib.h>
 
 
 
@@ -144,13 +144,13 @@ void min_pixel(char* filename) {
 }
 
 void min_component(char* filename, char* component) {
-    // Assuming component is a single character 'R', 'G', or 'B'
+    
     unsigned char *data;
     int width, height, channel_count;
 
     read_image_data(filename, &data, &width, &height, &channel_count);
     
-    int min_value = 255; // Initialize to maximum possible value for a pixel component
+    int min_value = 255; 
     int min_x = 0, min_y = 0;
 
     for (int y = 0; y < height; y++) {
@@ -180,4 +180,18 @@ void min_component(char* filename, char* component) {
 
     printf("min_component (%d, %d): %d\n", min_x, min_y, min_value);
 }
-  
+
+void color_red (const char* filename) {
+    unsigned char *data= NULL;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    unsigned char *nouvelle_img = malloc (width * height * channel_count);
+    for (int i=0; i < width * height; i ++) {
+        int pixel_index = i * channel_count;
+        if (channel_count>0)  nouvelle_img[pixel_index] = data[pixel_index]; 
+        if (channel_count>1) nouvelle_img[pixel_index + 1] = 0;  
+        if (channel_count>2) nouvelle_img[pixel_index + 2] = 0; 
+        }
+    write_image_data("image_out.bmp",nouvelle_img,  width, height);
+}
