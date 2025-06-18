@@ -1,5 +1,7 @@
 #include <estia-image.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "features.h"
 #include "utils.h"
@@ -179,6 +181,53 @@ void min_component(char* filename, char* component) {
     }
 
     printf("min_component (%d, %d): %d\n", min_x, min_y, min_value);
+}
+  
+void max_component(char* filename, char component) {
+    unsigned char *data;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+
+    if (data == NULL) {
+        printf("Erreur : impossible de lire l'image.\n");
+        return;
+    }
+
+    if (channel_count < 3) {
+        printf("Erreur : l'image ne contient pas de canaux RGB.\n");
+        return;
+    }
+
+    int max_value = -1;
+    int max_x = 0, max_y = 0;
+    int channel_index;
+
+    if (component == 'R' || component == 'r') {
+        channel_index = 0;
+    } else if (component == 'G' || component == 'g') {
+        channel_index = 1;
+    } else if (component == 'B' || component == 'b') {
+        channel_index = 2;
+    } else {
+        printf("Erreur : composant invalide. Utilise R, G ou B.\n");
+        return;
+    }
+
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int pixel_index = (y * width + x) * channel_count;
+            unsigned char value = data[pixel_index + channel_index];
+
+            if (value > max_value) {
+                max_value = value;
+                max_x = x;
+                max_y = y;
+            }
+        }
+    }
+
+    printf("max_component %c (%d, %d): %d\n", component, max_x, max_y, max_value);
 }
 
 void color_red (const char* filename) {

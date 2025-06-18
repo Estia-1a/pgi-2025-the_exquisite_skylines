@@ -19,6 +19,7 @@ void min_pixel(char* filename);
 
 void min_component(char* filename, char* arguments);
 
+void max_component(char* filename, char component);
 void color_red (const char* filename);
 
 void color_green (const char* filename);
