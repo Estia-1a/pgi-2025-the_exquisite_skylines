@@ -64,7 +64,7 @@ void first_pixel(char* filename) {
     }
 }
 
-void max_pixel(char* filename) {
+void max_pixel(const char* filename, FILE* output) {
     unsigned char *data;
     int width, height, channel_count;
     
@@ -95,7 +95,7 @@ void max_pixel(char* filename) {
         }
     }
     
-    printf("max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, max_r, max_g, max_b);
+    fprintf(output, "max_pixel (%d, %d): %d, %d, %d\n", max_x, max_y, max_r, max_g, max_b);
     
 }
 void print_pixel(char* filename, int x, int y) {
@@ -111,7 +111,7 @@ void print_pixel(char* filename, int x, int y) {
     }
 }
 
-void min_pixel(char* filename) {
+void min_pixel(const char* filename, FILE* output) {
     unsigned char *data;
     int width, height, channel_count;
 
@@ -142,10 +142,10 @@ void min_pixel(char* filename) {
         }
     }
     
-    printf("min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, min_r, min_g, min_b);
+    fprintf(output,"min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, min_r, min_g, min_b);
 }
 
-void min_component(char* filename, char* component) {
+void min_component(const char* filename, const char* component, FILE* output){
     
     unsigned char *data;
     int width, height, channel_count;
@@ -180,10 +180,10 @@ void min_component(char* filename, char* component) {
         }
     }
 
-    printf("min_component (%d, %d): %d\n", min_x, min_y, min_value);
+    fprintf(output, "min_component (%d, %d): %d\n", min_x, min_y, min_value);
 }
   
-void max_component(char* filename, char component) {
+void max_component(const char* filename,const char component, FILE* output) {
     unsigned char *data;
     int width, height, channel_count;
 
@@ -227,7 +227,7 @@ void max_component(char* filename, char component) {
         }
     }
 
-    printf("max_component %c (%d, %d): %d\n", component, max_x, max_y, max_value);
+    fprintf(output, "max_component %c (%d, %d): %d\n", component, max_x, max_y, max_value);
 }
 
 void color_red (const char* filename) {
@@ -335,4 +335,25 @@ void color_desaturate (const char* filename) {
         if (channel_count>2) nouvelle_img[pixel_index + 2] = desaturate; 
         }
     write_image_data("image_out.bmp",nouvelle_img,  width, height);
+}
+
+
+void stat_report(const char* filename) {
+    FILE* output = fopen("stat_report.txt", "w");
+    if (output == NULL) {
+        fprintf(stderr, "Erreur lors de l'ouverture du fichier de sortie.\n");
+        return;
+    }
+
+    max_pixel(filename, output);
+    min_pixel(filename, output);
+    max_component(filename, 'R', output);
+    max_component(filename, 'G', output);
+    max_component(filename, 'B', output);
+    min_component(filename, "R", output);
+    min_component(filename, "G", output);
+    min_component(filename, "B", output);
+
+    fclose(output);
+
 }
