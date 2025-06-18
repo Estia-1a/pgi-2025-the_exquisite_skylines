@@ -224,3 +224,19 @@ void color_blue (const char* filename) {
         }
     write_image_data("image_out.bmp",nouvelle_img,  width, height);
 }
+
+void color_grey (const char* filename) {
+    unsigned char *data= NULL;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    unsigned char *nouvelle_img = malloc (width * height * channel_count);
+    for (int i=0; i < width * height; i ++) {
+        int pixel_index = i * channel_count;
+        unsigned char grey_color = (data[pixel_index] + data[pixel_index + 1] + data[pixel_index + 2]) / 3;  //reprise  du codage pour RGB 
+        if (channel_count>0)  nouvelle_img[pixel_index] = grey_color; 
+        if (channel_count>1) nouvelle_img[pixel_index + 1] = grey_color;  
+        if (channel_count>2) nouvelle_img[pixel_index + 2] = grey_color; 
+        }
+    write_image_data("image_out.bmp",nouvelle_img,  width, height);
+}

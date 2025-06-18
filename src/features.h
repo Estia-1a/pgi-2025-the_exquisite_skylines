@@ -24,4 +24,7 @@ void color_red (const char* filename);
 void color_green (const char* filename);
 
 void color_blue (const char* filename);
+
+void color_grey (const char* filename);
+
 #endif
