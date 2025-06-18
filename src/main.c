@@ -44,8 +44,23 @@ int main(int argc, char **argv) {
     print_pixel(configuration.filenames[0], configuration.x, configuration.y);
   } else if (strncmp( configuration.command, "min_component", 13) == 0) {
     min_component (configuration.filenames[0], configuration.arguments[0]);
+<<<<<<< HEAD
   } else if (strncmp(configuration.command, "max_component", 13) == 0) {
     max_component(configuration.filenames[0], configuration.arguments[0][0]);
+=======
+  } else if (strncmp( configuration.command, "color_red", 10) == 0) {
+    color_red(configuration.filenames[0]);
+  } else if (strncmp( configuration.command, "color_green", 12) == 0) {
+    color_green(configuration.filenames[0]);
+  } else if (strncmp( configuration.command, "color_blue", 11) == 0) {
+    color_blue(configuration.filenames[0]);
+  } else if (strncmp(configuration.command, "color_grey",11 )==0) {
+    color_grey(configuration.filenames[0]);
+  }else if (strncmp(configuration.command, "invert_colors", 13) == 0) {
+    invert_colors(configuration.filenames[0]);
+  }else if (strncmp(configuration.command,"color_grey_luminance", 20) == 0) {
+    color_grey_luminance(configuration.filenames[0]);
+>>>>>>> 117ea5fd1a9f8dd1c35d42573f7a26c69307aa5a
   }
-  return 0;
+   return 0;
 }
