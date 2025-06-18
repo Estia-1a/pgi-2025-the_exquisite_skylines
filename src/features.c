@@ -255,3 +255,19 @@ void invert_colors (const char* filename) {
         }
     write_image_data("image_out.bmp",nouvelle_img,  width, height);
 }
+
+void color_grey_luminance (const char* filename) {
+    unsigned char *data= NULL;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    unsigned char *nouvelle_img = malloc (width * height * channel_count);
+    for (int i=0; i < width * height; i ++) {
+        int pixel_index = i * channel_count;
+        unsigned char luminance = 0.21* data[pixel_index] + 0.72 * data[pixel_index + 1] + 0.07 * data[pixel_index + 2];   // formule luminosite
+        if (channel_count>0)  nouvelle_img[pixel_index] = luminance; 
+        if (channel_count>1) nouvelle_img[pixel_index + 1] = luminance;  
+        if (channel_count>2) nouvelle_img[pixel_index + 2] = luminance; 
+        }
+    write_image_data("image_out.bmp",nouvelle_img,  width, height);
+}
