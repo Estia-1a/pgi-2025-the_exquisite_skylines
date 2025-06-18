@@ -42,8 +42,8 @@ int main(int argc, char **argv) {
     min_pixel(configuration.filenames[0]);
   } else if (strncmp( configuration.command, "print_pixel", 11)==0) {
     print_pixel(configuration.filenames[0], configuration.x, configuration.y);
-
+  } else if (strncmp( configuration.command, "min_component", 13) == 0) {
+    min_component (configuration.filenames[0], configuration.arguments[0]);
   }
-
   return 0;
 }

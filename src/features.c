@@ -142,3 +142,42 @@ void min_pixel(char* filename) {
     
     printf("min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, min_r, min_g, min_b);
 }
+
+void min_component(char* filename, char* component) {
+    // Assuming component is a single character 'R', 'G', or 'B'
+    unsigned char *data;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    
+    int min_value = 255; // Initialize to maximum possible value for a pixel component
+    int min_x = 0, min_y = 0;
+
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            int pixel_index = (y * width + x) * channel_count;
+            unsigned char value;
+
+        
+        if (component[0] == 'R' || component[0] == 'r') {
+            value = data[pixel_index]; 
+        } else if (component[0] == 'G' || component[0] == 'g') {
+            value = data[pixel_index + 1]; 
+        } else if (component[0] == 'B' || component[0] == 'b') {
+            value = data[pixel_index + 2]; 
+        } else {
+            printf("pas le bon composant renseigne.\n");
+            return;
+        }
+
+            if (value < min_value) {
+                min_value = value;
+                min_x = x;
+                min_y = y;
+            }
+        }
+    }
+
+    printf("min_component (%d, %d): %d\n", min_x, min_y, min_value);
+}
+  

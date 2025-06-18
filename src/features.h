@@ -1,5 +1,6 @@
 #ifndef FEATURES_H
 #define FEATURES_H
+#include "utils.h"
 
 
 void helloWorld();
@@ -16,4 +17,5 @@ void print_pixel( char *filename, int x, int y );
 
 void min_pixel(char* filename);
 
+void min_component(char* filename, char* arguments);
 #endif

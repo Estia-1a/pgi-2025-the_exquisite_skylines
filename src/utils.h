@@ -18,6 +18,11 @@ typedef struct _pixelRGB {
 
 pixelRGB* get_pixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y );
 
+void set_pixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y, pixelRGB* pixel );
 
-
+typedef enum {
+    COMPONENT_R,
+    COMPONENT_G,
+    COMPONENT_B
+} component_t;
 #endif

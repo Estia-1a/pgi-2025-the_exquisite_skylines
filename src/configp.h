@@ -9,12 +9,14 @@
 #define MAX_FILE_COUNT 10 /* Maximum number of files */
 #define MAX_LENGTH_COMMAND 25 /* Maximum length of a command */
 #define MAX_ARGUMENT_COUNT 5 /* Maximum number of arguments */
+#define MAX_LENGTH_ARGUMENT 50 /* Maximum length of an argument */
+
 
 typedef struct _config {
     int debug_mode ; /* Debug mode flag --debug */
     char command[MAX_LENGTH_COMMAND] ; /* Command called. Example: helloworld */
     char* filenames[MAX_FILE_COUNT] ; /* Images path. Example: ./images/input/image.jpeg */
-    char* arguments[MAX_ARGUMENT_COUNT] ; /* Other arguments. */
+    char* arguments[MAX_ARGUMENT_COUNT] ; 
     int x;
     int y;
 } Config ;
