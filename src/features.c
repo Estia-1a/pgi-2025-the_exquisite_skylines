@@ -338,7 +338,7 @@ void color_desaturate (const char* filename) {
 }
 
 
-void rotate_cw(const char* filename) {
+void rotate_acw(const char* filename) {
     unsigned char *input_data;
     int width, height, channels;
 
@@ -358,13 +358,13 @@ void rotate_cw(const char* filename) {
         return;
     }
 
-    for (int x = 0; x < height; x++) {
-        for (int y = 0; y < width; y++) {
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
             for (int c = 0; c < channels; c++) {
-                int old_index = (x * width + y) * channels + c;
-                int new_y = x;
-                int new_x = new_height - 1 - y;
-                int new_index = (new_x * new_width + new_y) * channels + c;
+                int old_index = (y * width + x) * channels + c;
+                int new_x = y;
+                int new_y = new_height - 1 - x;
+                int new_index = (new_y * new_width + new_x) * channels + c;
                 rotated_data[new_index] = input_data[old_index];
             }
         }

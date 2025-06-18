@@ -20,6 +20,7 @@ void min_pixel(char* filename);
 void min_component(char* filename, char* arguments);
 
 void max_component(char* filename, char component);
+
 void color_red (const char* filename);
 
 void color_green (const char* filename);
@@ -34,5 +35,5 @@ void color_grey_luminance (const char* filename);
 
 void color_desaturate (const char* filename);
 
-void rotate_cw (const char* filename);
+void rotate_acw (const char* filename);
 #endif
