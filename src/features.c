@@ -336,3 +336,39 @@ void color_desaturate (const char* filename) {
         }
     write_image_data("image_out.bmp",nouvelle_img,  width, height);
 }
+
+
+void rotate_cw(const char* filename) {
+    unsigned char *input_data;
+    int width, height, channels;
+
+    read_image_data(filename, &input_data, &width, &height, &channels);
+
+    if (input_data == NULL) {
+        printf("Erreur : l'image n'a pas pu être chargee.\n");
+        return;
+    }
+
+    int new_width = height;
+    int new_height = width;
+
+    unsigned char *rotated_data = malloc(new_width * new_height * channels);
+    if (rotated_data == NULL) {
+        printf("Erreur : memoire insuffisante pour l'image tournee.\n");
+        return;
+    }
+
+    for (int x = 0; x < height; x++) {
+        for (int y = 0; y < width; y++) {
+            for (int c = 0; c < channels; c++) {
+                int old_index = (x * width + y) * channels + c;
+                int new_y = x;
+                int new_x = new_height - 1 - y;
+                int new_index = (new_x * new_width + new_y) * channels + c;
+                rotated_data[new_index] = input_data[old_index];
+            }
+        }
+    }
+
+    write_image_data("image_out.bmp", rotated_data, new_width, new_height);
+}

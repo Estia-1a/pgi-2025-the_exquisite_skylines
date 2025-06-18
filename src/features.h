@@ -33,4 +33,6 @@ void invert_colors (const char* filename);
 void color_grey_luminance (const char* filename);
 
 void color_desaturate (const char* filename);
+
+void rotate_cw (const char* filename);
 #endif
