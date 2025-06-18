@@ -37,15 +37,15 @@ int main(int argc, char **argv) {
   } else if (strncmp( configuration.command, "first_pixel", 11) == 0 ) {
     first_pixel(configuration.filenames[0]);
   } else if (strncmp( configuration.command, "max_pixel", 9) == 0) {
-    max_pixel(configuration.filenames[0]);
+    max_pixel(configuration.filenames[0], stdout);
   } else if (strncmp( configuration.command, "min_pixel", 9) == 0) {
-    min_pixel(configuration.filenames[0]);
+    min_pixel(configuration.filenames[0], stdout);
   } else if (strncmp( configuration.command, "print_pixel", 11)==0) {
     print_pixel(configuration.filenames[0], configuration.x, configuration.y);
   } else if (strncmp( configuration.command, "min_component", 13) == 0) {
-    min_component (configuration.filenames[0], configuration.arguments[0]);
+    min_component (configuration.filenames[0], configuration.arguments[0], stdout);
   } else if (strncmp(configuration.command, "max_component", 13) == 0) {
-    max_component(configuration.filenames[0], configuration.arguments[0][0]);
+    max_component(configuration.filenames[0], configuration.arguments[0][0], stdout);
   } else if (strncmp( configuration.command, "color_red", 10) == 0) {
     color_red(configuration.filenames[0]);
   } else if (strncmp( configuration.command, "color_green", 12) == 0) {
@@ -60,8 +60,15 @@ int main(int argc, char **argv) {
     color_grey_luminance(configuration.filenames[0]);
   }else if (strncmp(configuration.command, "color_desaturate", 16) == 0) {
     color_desaturate(configuration.filenames[0]);
+<<<<<<< HEAD
   } else if (strncmp(configuration.command, "rotate_acw", 10) == 0) {
     rotate_acw(configuration.filenames[0]);
+=======
+  } else if (strcmp(configuration.command, "stat_report") == 0) {
+    stat_report(configuration.filenames[0] );
+  } else if (strncmp(configuration.command, "rotate_cw", 9) == 0) {
+    rotate_cw(configuration.filenames[0]);
+>>>>>>> b28e52e64038b93f9e481bb39eaded3e4ae30ae8
   }
    return 0;
 }
