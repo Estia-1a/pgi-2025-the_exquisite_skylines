@@ -1,5 +1,7 @@
 #include <estia-image.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "features.h"
 #include "utils.h"
@@ -143,3 +145,4 @@ void min_pixel(char* filename) {
     
     printf("min_pixel (%d, %d): %d, %d, %d\n", min_x, min_y, min_r, min_g, min_b);
 }
+
