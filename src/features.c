@@ -355,6 +355,7 @@ void stat_report(const char* filename) {
     min_component(filename, "B", output);
 
     fclose(output);
+}
 
 void rotate_cw(const char* filename) {
     unsigned char *input_data;
