@@ -240,3 +240,18 @@ void color_grey (const char* filename) {
         }
     write_image_data("image_out.bmp",nouvelle_img,  width, height);
 }
+
+void invert_colors (const char* filename) {
+    unsigned char *data= NULL;
+    int width, height, channel_count;
+
+    read_image_data(filename, &data, &width, &height, &channel_count);
+    unsigned char *nouvelle_img = malloc (width * height * channel_count);
+    for (int i=0; i < width * height; i ++) {
+        int pixel_index = i * channel_count;
+        if (channel_count>0)  nouvelle_img[pixel_index] = 255 - data[pixel_index];             //inversion de rouge
+        if (channel_count>1) nouvelle_img[pixel_index + 1] = 255 - data[pixel_index + 1];      //inversion de vert
+        if (channel_count>2) nouvelle_img[pixel_index + 2] = 255 - data[pixel_index + 2];       //inversion de bleu
+        }
+    write_image_data("image_out.bmp",nouvelle_img,  width, height);
+}

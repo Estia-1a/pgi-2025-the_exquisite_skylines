@@ -27,4 +27,6 @@ void color_blue (const char* filename);
 
 void color_grey (const char* filename);
 
+void invert_colors (const char* filename);
+
 #endif
