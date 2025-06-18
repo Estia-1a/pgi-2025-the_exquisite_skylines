@@ -62,6 +62,8 @@ int main(int argc, char **argv) {
     color_desaturate(configuration.filenames[0]);
   } else if (strcmp(configuration.command, "stat_report") == 0) {
     stat_report(configuration.filenames[0] );
+  } else if (strncmp(configuration.command, "rotate_cw", 9) == 0) {
+    rotate_cw(configuration.filenames[0]);
   }
    return 0;
 }
