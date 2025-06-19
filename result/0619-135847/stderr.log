@@ -1,0 +1,89 @@
+In file included from /home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:8:
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< HEAD
+      | ^~~~~~~
+In file included from /home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.c:6:
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:24:1: error: version control conflict marker in file
+   24 | <<<<<<< HEAD
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:27:1: error: version control conflict marker in file
+   27 | =======
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:27:1: error: version control conflict marker in file
+   27 | =======
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:43:1: error: version control conflict marker in file
+   43 | <<<<<<< HEAD
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:45:1: error: version control conflict marker in file
+   45 | =======
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:43:1: error: version control conflict marker in file
+   43 | <<<<<<< HEAD
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:48:1: error: version control conflict marker in file
+   48 | >>>>>>> b28e52e64038b93f9e481bb39eaded3e4ae30ae8
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:45:1: error: version control conflict marker in file
+   45 | =======
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.h:48:1: error: version control conflict marker in file
+   48 | >>>>>>> b28e52e64038b93f9e481bb39eaded3e4ae30ae8
+      | ^~~~~~~
+In file included from /home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/argsparse.h:7,
+                 from /home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:10:
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/configp.h:22:3: warning: data definition has no type or storage class
+   22 | } Config ;
+      |   ^~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/configp.h:22:3: warning: type defaults to ‘int’ in declaration of ‘Config’ [-Wimplicit-int]
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/argsparse.h:9:46: error: expected declaration specifiers or ‘...’ before ‘Config’
+    9 | void parse_arguments( int argc, char **argv, Config * conf);
+      |                                              ^~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/argsparse.h:11:23: error: expected declaration specifiers or ‘...’ before ‘Config’
+   11 | void check_debug_mode(Config conf);
+      |                       ^~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c: In function ‘main’:
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:20:9: error: expected ‘;’ before ‘configuration’
+   20 |   Config configuration ;
+      |         ^~~~~~~~~~~~~~
+      |         ;
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:21:3: warning: implicit declaration of function ‘parse_arguments’ [-Wimplicit-function-declaration]
+   21 |   parse_arguments( argc, argv, &configuration ) ;
+      |   ^~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:21:33: error: ‘configuration’ undeclared (first use in this function)
+   21 |   parse_arguments( argc, argv, &configuration ) ;
+      |                                 ^~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:21:33: note: each undeclared identifier is reported only once for each function it appears in
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:22:3: warning: implicit declaration of function ‘check_debug_mode’ [-Wimplicit-function-declaration]
+   22 |   check_debug_mode(configuration);
+      |   ^~~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/features.c:341:1: error: version control conflict marker in file
+  341 | <<<<<<< HEAD
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:50:5: warning: implicit declaration of function ‘color_red’; did you mean ‘color_grey’? [-Wimplicit-function-declaration]
+   50 |     color_red(configuration.filenames[0]);
+      |     ^~~~~~~~~
+      |     color_grey
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:63:1: error: version control conflict marker in file
+   63 | <<<<<<< HEAD
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:65:5: warning: implicit declaration of function ‘rotate_acw’; did you mean ‘rotate_cw’? [-Wimplicit-function-declaration]
+   65 |     rotate_acw(configuration.filenames[0]);
+      |     ^~~~~~~~~~
+      |     rotate_cw
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:66:1: error: version control conflict marker in file
+   66 | =======
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:68:5: warning: implicit declaration of function ‘stat_report’ [-Wimplicit-function-declaration]
+   68 |     stat_report(configuration.filenames[0] );
+      |     ^~~~~~~~~~~
+/home/runner/work/pgi-2025-the_exquisite_skylines/pgi-2025-the_exquisite_skylines/src/main.c:71:1: error: version control conflict marker in file
+   71 | >>>>>>> b28e52e64038b93f9e481bb39eaded3e4ae30ae8
+      | ^~~~~~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:107: CMakeFiles/freud.dir/src/main.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
