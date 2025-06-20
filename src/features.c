@@ -338,9 +338,7 @@ void color_desaturate (const char* filename) {
 }
 
 
-<<<<<<< HEAD
 void rotate_acw(const char* filename) {
-=======
 void stat_report(const char* filename) {
     FILE* output = fopen("stat_report.txt", "w");
     if (output == NULL) {
@@ -361,7 +359,6 @@ void stat_report(const char* filename) {
 }
 
 void rotate_cw(const char* filename) {
->>>>>>> b28e52e64038b93f9e481bb39eaded3e4ae30ae8
     unsigned char *input_data;
     int width, height, channels;
 
