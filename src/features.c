@@ -60,7 +60,7 @@ void first_pixel(char* filename) {
         pixel.R = data[0];
         pixel.G = data[1];
         pixel.B = data[2];
-        printf("first pixel: %d, %d, %d\n", pixel.R, pixel.G, pixel.B);
+        printf("first_pixel: %d, %d, %d\n", pixel.R, pixel.G, pixel.B);
     }
 }
 
@@ -339,6 +339,7 @@ void color_desaturate (const char* filename) {
 
 
 void rotate_acw(const char* filename) {
+}
 void stat_report(const char* filename) {
     FILE* output = fopen("stat_report.txt", "w");
     if (output == NULL) {
