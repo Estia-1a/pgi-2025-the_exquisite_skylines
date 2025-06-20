@@ -21,8 +21,6 @@ void min_component(const char* filename, const char* arguments, FILE* output);
 
 void max_component(const char* filename,const char component, FILE* output);
 
-void max_component(char* filename, char component);
-
 void color_red (const char* filename);
 
 void color_green (const char* filename);
@@ -37,7 +35,7 @@ void color_grey_luminance (const char* filename);
 
 void color_desaturate (const char* filename);
 
-void rotate_acw (const char* filename);
-void stat_report(const char* filename);
 void rotate_cw (const char* filename);
+void stat_report(const char* filename);
+void rotate_acw (const char* filename);
 #endif

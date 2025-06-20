@@ -338,7 +338,40 @@ void color_desaturate (const char* filename) {
 }
 
 
-void rotate_acw(const char* filename) {
+void rotate_cw(const char* filename) {
+    unsigned char *input_data;
+    int width, height, channels;
+
+    read_image_data(filename, &input_data, &width, &height, &channels);
+
+    if (input_data == NULL) {
+        printf("Erreur : l'image n'a pas pu être chargée.\n");
+        return;
+    }
+
+    int new_width = height;
+    int new_height = width;
+
+    unsigned char *rotated_data = malloc(new_width * new_height * channels);
+    if (rotated_data == NULL) {
+        printf("Erreur : mémoire insuffisante pour l'image tournée.\n");
+        return;
+    }
+
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            for (int c = 0; c < channels; c++) {
+                int old_index = (y * width + x) * channels + c;
+                int new_x = new_width - 1 - y;
+                int new_y = x;
+                int new_index = (new_y * new_width + new_x) * channels + c;
+                rotated_data[new_index] = input_data[old_index];
+            }
+        }
+    }
+
+    write_image_data("image_out.bmp", rotated_data, new_width, new_height);
+    
 }
 void stat_report(const char* filename) {
     FILE* output = fopen("stat_report.txt", "w");
@@ -359,7 +392,7 @@ void stat_report(const char* filename) {
     fclose(output);
 }
 
-void rotate_cw(const char* filename) {
+void rotate_acw(const char* filename) {
     unsigned char *input_data;
     int width, height, channels;
 
